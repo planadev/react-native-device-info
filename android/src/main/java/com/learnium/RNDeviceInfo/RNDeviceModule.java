@@ -302,6 +302,11 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     return sharedPref.getString("installReferrer", null);
   }
 
+  @ReactMethod
+  public void getTimezone(Promise p) {
+    p.resolve(TimeZone.getDefault().getID());
+  }
+
   @Override
   public @Nullable
   Map<String, Object> getConstants() {
@@ -371,7 +376,6 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
         constants.put("userAgent", System.getProperty("http.agent"));
       }
     }
-    constants.put("timezone", TimeZone.getDefault().getID());
     constants.put("isEmulator", this.isEmulator());
     constants.put("isTablet", this.isTablet());
     constants.put("fontScale", this.fontScale());

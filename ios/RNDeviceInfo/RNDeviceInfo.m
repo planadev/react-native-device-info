@@ -316,7 +316,6 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
              @"systemManufacturer": @"Apple",
              @"carrier": self.carrier ?: [NSNull null],
              @"userAgent": self.userAgent ?: [NSNull null],
-             @"timezone": self.timezone ?: [NSNull null],
              @"isEmulator": @(self.isEmulator),
              @"isTablet": @(self.isTablet),
              @"is24Hour": @(self.is24Hour),
@@ -327,6 +326,10 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
              @"deviceType": [DeviceTypeValues objectAtIndex: [self getDeviceType]],
              @"supportedABIs": @[[self getCPUType]],
              };
+}
+
+RCT_EXPORT_METHOD(getTimezone:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+    return resolve([self timezone]);
 }
 
 RCT_EXPORT_METHOD(getMacAddress:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)

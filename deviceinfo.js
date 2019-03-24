@@ -257,7 +257,7 @@ export default {
     return RNDeviceInfo.deviceCountry;
   },
   getTimezone: function() {
-    return RNDeviceInfo.timezone;
+    return RNDeviceInfo.getTimezone();
   },
   getFontScale: function() {
     return RNDeviceInfo.fontScale;
